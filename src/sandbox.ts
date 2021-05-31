@@ -1,10 +1,21 @@
-const character = 'mario';
+// Dynamic type
+let something: any;
+something = 10;
+something = 'some dummy string';
 
-console.log(character);
 
-const inputs = document.querySelectorAll('input');
+// Function
+let greet: Function;
 
-inputs.forEach(input => {
-  console.log(input);
-  console.log('testing');
-});
+greet = (first: number, second: number) => {
+  console.log(first + second);
+}
+
+const add = (a: number, b: number = 10) => a + b;
+
+const printSomething = (): void => console.log('Print');
+
+// Type aliases
+type StringOrNumber = string | number;
+
+const greetAgain = (param: StringOrNumber) => console.log(param);
