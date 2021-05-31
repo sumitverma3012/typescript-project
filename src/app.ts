@@ -1,3 +1,5 @@
+import {Invoice} from './classes/Invoice.js';
+
 // Dynamic type
 let something: any;
 something = 10;
@@ -34,32 +36,11 @@ logDetails({name: 'testing', age: 20})
 
 // DOM
 
-class Invoice {
-  // client: string;
-  // details: string;
-  // amount: number;
-
-  // constructor(c: string, d: string, a: number) {
-  //   this.amount = a;
-  //   this.client = c;
-  //   this.details = d;
-  // }
-  // another way of writing and assigning them, this works only if we use access modifiers
-
-  constructor(
-    readonly client: string,
-    private details: string,
-    public amount: number
-  ){}
-
-  format() {
-    return `${this.client} owes $${this.amount} for ${this.details}`;
-  }
-}
 
 const invoiceOne = new Invoice('Sam', 'works on the website', 200);
 const invoiceTwo = new Invoice('John', 'works on the website', 280);
 let invoices: Invoice[] = [];
+console.log(invoiceOne, invoiceTwo)
 
 const button = document.querySelector('button')!; // we are sure that element cannot be undefined ever
 console.log(button.innerHTML);
@@ -76,3 +57,16 @@ form.addEventListener('submit', (event: Event) => {
   event.preventDefault();
   console.log(amount.valueAsNumber); // because JS by default converts values to string;
 })
+
+
+// interfaces
+interface IPerson {
+  name: string;
+  age: number;
+}
+
+const testPerson: IPerson = {
+  name: 'Sam',
+  age: 20
+}
+console.log(testPerson);
