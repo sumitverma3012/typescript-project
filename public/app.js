@@ -49,3 +49,16 @@ form.addEventListener('submit', (event) => {
     list.render(doc, 'Test', 'end');
     console.log(doc); // because JS by default converts values to string;
 });
+// Generics
+const generateUUID = (input) => {
+    const uuid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, input), { uuid });
+};
+console.log(generateUUID(10));
+console.log(generateUUID('testing'));
+console.log(generateUUID({ name: 'test' }));
+const generateUUIDSecond = (input) => {
+    const uuid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, input), { uuid });
+};
+console.log(generateUUIDSecond({ name: 'test' }));
