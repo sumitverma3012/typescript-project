@@ -30,3 +30,22 @@ let logDetails: (user: Details) => void;
 logDetails = (user: Details) => console.log(`${user.name} - ${user.age}`);
 
 logDetails({name: 'testing', age: 20})
+
+
+// DOM
+
+const button = document.querySelector('button')!; // we are sure that element cannot be undefined ever
+console.log(button.innerHTML);
+
+const form = document.querySelector('.new-item-form') as HTMLFontElement;
+console.log(form);
+
+const type = document.querySelector('#type') as HTMLSelectElement;
+const toFrom = document.querySelector('#toFrom') as HTMLInputElement;
+const details = document.querySelector('#details') as HTMLInputElement;
+const amount = document.querySelector('#amount') as HTMLInputElement;
+
+form.addEventListener('submit', (event: Event) => {
+  event.preventDefault();
+  console.log(amount.valueAsNumber); // because JS by default converts values to string;
+})

@@ -20,3 +20,16 @@ greetAgainTwice = function (name, age) { return console.log(name + " - " + age);
 var logDetails;
 logDetails = function (user) { return console.log(user.name + " - " + user.age); };
 logDetails({ name: 'testing', age: 20 });
+// DOM
+var button = document.querySelector('button'); // we are sure that element cannot be undefined ever
+console.log(button.innerHTML);
+var form = document.querySelector('.new-item-form');
+console.log(form);
+var type = document.querySelector('#type');
+var toFrom = document.querySelector('#toFrom');
+var details = document.querySelector('#details');
+var amount = document.querySelector('#amount');
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    console.log(amount.valueAsNumber); // because JS by default converts values to string;
+});
