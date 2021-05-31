@@ -1,5 +1,6 @@
 import { Invoice } from './classes/Invoice.js';
 import { Payment } from './classes/Payment.js';
+import { ListTemplate } from './classes/ListTemplate.js';
 /** Dynamic type **/
 // let something: any;
 // something = 10;
@@ -34,6 +35,7 @@ const type = document.querySelector('#type');
 const toFrom = document.querySelector('#tofrom');
 const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
+const unorderedList = document.querySelector('ul');
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     let doc; // object definitely have implemented format method
@@ -43,5 +45,7 @@ form.addEventListener('submit', (event) => {
     else {
         doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
     }
+    const list = new ListTemplate(unorderedList);
+    list.render(doc, 'Test', 'end');
     console.log(doc); // because JS by default converts values to string;
 });

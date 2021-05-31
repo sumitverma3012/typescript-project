@@ -2,6 +2,7 @@ import {Invoice} from './classes/Invoice.js';
 import {Payment} from './classes/Payment.js';
 import {IPerson} from './interfaces/IPerson.js'
 import {HasFormatter} from './interfaces/HasFormatter.js';
+import { ListTemplate } from './classes/ListTemplate.js';
 
 /** Dynamic type **/
 
@@ -59,6 +60,7 @@ const type = document.querySelector('#type') as HTMLSelectElement;
 const toFrom = document.querySelector('#tofrom') as HTMLInputElement;
 const details = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
+const unorderedList = document.querySelector('ul') as HTMLUListElement;
 
 form.addEventListener('submit', (event: Event) => {
   event.preventDefault();
@@ -68,5 +70,8 @@ form.addEventListener('submit', (event: Event) => {
   } else {
     doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
   }
+
+  const list = new ListTemplate(unorderedList);
+  list.render(doc, 'Test', 'end')
   console.log(doc); // because JS by default converts values to string;
 })
