@@ -19,3 +19,14 @@ const printSomething = (): void => console.log('Print');
 type StringOrNumber = string | number;
 
 const greetAgain = (param: StringOrNumber) => console.log(param);
+
+
+// Function signature
+let greetAgainTwice: (first: string, second: number) => void;
+greetAgainTwice = (name: string, age: number) => console.log(`${name} - ${age}`);
+
+type Details = {name: string, age: number};
+let logDetails: (user: Details) => void;
+logDetails = (user: Details) => console.log(`${user.name} - ${user.age}`);
+
+logDetails({name: 'testing', age: 20})

@@ -14,3 +14,9 @@ var add = function (a, b) {
 };
 var printSomething = function () { return console.log('Print'); };
 var greetAgain = function (param) { return console.log(param); };
+// Function signature
+var greetAgainTwice;
+greetAgainTwice = function (name, age) { return console.log(name + " - " + age); };
+var logDetails;
+logDetails = function (user) { return console.log(user.name + " - " + user.age); };
+logDetails({ name: 'testing', age: 20 });
