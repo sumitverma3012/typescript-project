@@ -39,11 +39,14 @@ const unorderedList = document.querySelector('ul');
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     let doc; // object definitely have implemented format method
+    // tuples
+    let values;
+    values = [toFrom.value, details.value, amount.valueAsNumber];
     if (type.value === 'invoice') {
-        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }
     else {
-        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     }
     const list = new ListTemplate(unorderedList);
     list.render(doc, 'Test', 'end');

@@ -65,10 +65,14 @@ const unorderedList = document.querySelector('ul') as HTMLUListElement;
 form.addEventListener('submit', (event: Event) => {
   event.preventDefault();
   let doc: HasFormatter; // object definitely have implemented format method
+  
+  // tuples
+  let values: [string, string, number];
+  values = [toFrom.value, details.value, amount.valueAsNumber];
   if(type.value === 'invoice') {
-    doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+    doc = new Invoice(...values);
   } else {
-    doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+    doc = new Payment(...values);
   }
 
   const list = new ListTemplate(unorderedList);
